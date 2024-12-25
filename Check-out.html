@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chip Uber chip 4G 5G para todo o Brasil</title>
+    <link rel="icon" href="ub.png" type="image/png"> <!-- Favicon -->
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: #000; /* Cor de fundo preta */
+            color: #fff;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            width: 100%; /* Largura do cabeçalho 100% */
+            box-sizing: border-box; /* Inclui padding e border na largura total */
+        }
+        .header img {
+            height: 30px; /* Ajuste conforme necessário para deixar a imagem pequena */
+            margin-right: 15px; /* Espaçamento entre a imagem e o texto */
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px; /* Tamanho do texto do cabeçalho */
+        }
+        .main-content {
+            padding: 20px;
+        }
+        .main-content h2 {
+            font-size: 20px;
+            margin: 0 0 10px 0;
+        }
+        .main-content p {
+            font-size: 14px;
+            margin: 0;
+        }
+        .highlight {
+            color: #ff5722; /* Cor de destaque, ajuste conforme necessário */
+            font-weight: bold;
+        }
+        .box {
+            background-color: #f0f0f0; /* Cor de fundo dos retângulos */
+            border: 1px solid #ccc; /* Cor da borda */
+            border-radius: 5px; /* Bordas arredondadas */
+            padding: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .box img {
+            height: 40px; /* Ajuste conforme necessário */
+            margin-right: 10px;
+        }
+        .box h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+        .box button {
+            background-color: #000; /* Botão preto */
+            color: #fff; /* Texto branco */
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .box button:hover {
+            background-color: #333; /* Preto mais escuro no hover */
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            width: 80%;
+            max-width: 400px;
+            z-index: 10;
+            box-sizing: border-box;
+        }
+        .popup h4 {
+            margin-top: 0;
+        }
+        .popup label {
+            display: block;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .popup input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .popup button {
+            background-color: #000; /* Botão preto */
+            color: #fff; /* Texto branco */
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 10px; /* Espaço entre botões */
+        }
+        .popup button:hover {
+            background-color: #333; /* Preto mais escuro no hover */
+        }
+        .footer {
+            background-color: #000; /* Cor de fundo preta */
+            color: #fff;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center; /* Centralizar o texto */
+        }
+        <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chip Uber chip 4G 5G para todo o Brasil</title>
+    <link rel="icon" href="ub.png" type="image/png"> <!-- Favicon -->
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: #000; /* Cor de fundo preta */
+            color: #fff;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            width: 100%; /* Largura do cabeçalho 100% */
+            box-sizing: border-box; /* Inclui padding e border na largura total */
+        }
+        .header img {
+            height: 30px; /* Ajuste conforme necessário para deixar a imagem pequena */
+            margin-right: 15px; /* Espaçamento entre a imagem e o texto */
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px; /* Tamanho do texto do cabeçalho */
+        }
+        .main-content {
+            padding: 20px;
+        }
+        .main-content h2 {
+            font-size: 20px;
+            margin: 0 0 10px 0;
+        }
+        .main-content p {
+            font-size: 14px;
+            margin: 0;
+        }
+        .highlight {
+            color: #ff5722; /* Cor de destaque, ajuste conforme necessário */
+            font-weight: bold;
+        }
+        .box {
+            background-color: #f0f0f0; /* Cor de fundo dos retângulos */
+            border: 1px solid #ccc; /* Cor da borda */
+            border-radius: 5px; /* Bordas arredondadas */
+            padding: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .box img {
+            height: 40px; /* Ajuste conforme necessário */
+            margin-right: 10px;
+        }
+        .box h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+        .box button {
+            background-color: #000; /* Botão preto */
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .box button:hover {
+            background-color: #333; /* Preto mais escuro no hover */
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            width: 80%;
+            max-width: 400px;
+            z-index: 10;
+            box-sizing: border-box;
+        }
+        .popup h4 {
+            margin-top: 0;
+        }
+        .popup label {
+            display: block;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .popup input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .popup button {
+            background-color: #000; /* Botão preto */
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 10px; /* Espaço entre botões */
+        }
+        .popup button:hover {
+            background-color: #333; /* Preto mais escuro no hover */
+        }
+        .footer {
+            background-color: #000; /* Cor de fundo preta */
+            color: #fff;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center; /* Centralizar o texto */
+        }
+        .footer img {
+            max-width: 150px; /* Largura máxima da imagem */
+            height: auto; /* Manter proporção */
+            margin-bottom: 10px; /* Espaço abaixo da imagem */
+        }
+        .footer p {
+            margin: 5px 0; /* Espaçamento entre os parágrafos */
+            font-size: 14px; /* Tamanho do texto */
+        }
+        .footer small {
+            display: block;
+            margin-top: 10px; /* Espaço acima do texto */
+            font-size: 12px; /* Tamanho do texto menor */
+            color: #ccc; /* Cor do texto menor */
+        }
+        .error-message {
+            display: none;
+            background-color: #f44336; /* Cor de fundo vermelha */
+            color: #fff; /* Texto branco */
+            padding: 10px;
+            border-radius: 5px;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 300px;
+            text-align: center;
+        }
+        .payment-button {
+            background-color: #000; /* Cor de fundo preta */
+            color: #fff; /* Texto branco */
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 80%;
+            max-width: 300px;
+            margin: 20px auto 0 auto;
+            display: block;
+            text-align: center;
+        }
+        .payment-button:hover {
+            background-color: #333; /* Preto mais escuro no hover */
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="1.png" alt="Logo">
+        <h1>Seu Chip Uber</h1>
+    </header>
+    <div class="main-content">
+        <h2>Escolha o melhor plano para você</h2>
+        <p><span class="highlight">Todos os chips são um preço só</span>, o que muda é o <span class="highlight">plano mensal</span> que você vai ter que pagar</p>
+        <div class="box" id="plan-box">
+            <img src="plano.png" alt="Plano">
+            <div>
+                <h3>Escolha o Tipo de Plano</h3>
+                <p id="selected-plan">Nenhum plano selecionado</p>
+                <button onclick="togglePopup('plan-popup')">Escolher Plano</button>
+                <div class="popup" id="plan-popup">
+                    <h4>Escolha um Plano</h4>
+                    <label>
+                        <input type="radio" name="plan" value="3G - R$ 17 ao mês VOVO">
+                        3G - R$ 17 ao mês VOVO
+                    </label>
+                    <label>
+                        <input type="radio" name="plan" value="4G - R$ 20 ao mês TIM">
+                        4G - R$ 20 ao mês TIM
+                    </label>
+                    <label>
+                        <input type="radio" name="plan" value="5G - R$ 30 ao mês TIM">
+                        5G - R$ 30 ao mês TIM
+                    </label>
+                    <p>Cada plano cobramos um valor específico ao mês para manter o plano. O valor do chip é fixo, você só paga uma vez.</p>
+                    <button onclick="selectPlan()">Selecionar Plano</button>
+                    <button onclick="togglePopup('plan-popup')">Fechar</button>
+                </div>
+            </div>
+        </div>
+        <div class="box" id="delivery-box">
+            <img src="entrega.png" alt="Entrega">
+            <div>
+                <h3>Dados para Entrega</h3>
+                <p id="delivery-data">Nenhum dado inserido</p>
+                <button onclick="togglePopup('delivery-popup')">Inserir Dados de Entrega</button>
+                <div class="popup" id="delivery-popup">
+                    <h4>Dados para Entrega</h4>
+                    <label>
+                        CEP:
+                        <input type="number" id="cep" pattern="\d*" inputmode="numeric">
+                    </label>
+                    <label>
+                        Rua:
+                        <input type="text" id="street">
+                    </label>
+                    <label>
+                        Número:
+                        <input type="text" id="number">
+                    </label>
+                    <label>
+                        Bairro:
+                        <input type="text" id="neighborhood">
+                    </label>
+                    <label>
+                        Cidade:
+                        <input type="text" id="city">
+                    </label>
+                    <button onclick="saveDeliveryData()">Salvar</button>
+                    <button onclick="togglePopup('delivery-popup')">Fechar</button>
+                </div>
+            </div>
+        </div>
+        <div class="box" id="personal-box">
+            <img src="pessoal.png" alt="Dados Pessoais">
+            <div>
+                <h3>Dados Pessoais</h3>
+                <p id="personal-data">Nenhum dado inserido</p>
+                <button onclick="togglePopup('personal-popup')">Inserir Dados Pessoais</button>
+                <div class="popup" id="personal-popup">
+                    <h4>Dados Pessoais</h4>
+                    <label>
+                        Nome:
+                        <input type="text" id="first-name">
+                    </label>
+                    <label>
+                        Sobrenome:
+                        <input type="text" id="last-name">
+                    </label>
+                    <label>
+                        E-mail:
+                        <input type="email" id="email">
+                    </label>
+                    <label>
+                        Telefone:
+                        <input type="tel" id="phone" inputmode="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                    </label>
+                    <button onclick="savePersonalData()">Salvar</button>
+                    <button onclick="togglePopup('personal-popup')">Fechar</button>
+                </div>
+            </div>
+        </div>
+        <button class="payment-button" onclick="goToPayment()">Ir para Pagamento</button>
+    </div>
+    <footer class="footer">
+        <img src="1.png" alt="Logo">
+        <img src="formas-pagamento.png" alt="Formas de Pagamento">
+        <p>Segurança de pagamentos garantida</p>
+        <p>Contato: suporte@chipuber.com.br | Telefone: 0800 606 3235</p>
+        <p>CNPJ: 17.895.646/0001-87 | Tecnologia Ltda | Avenida Brigadeiro Faria Lima, n.º 949, Pinheiros, São Paulo/SP - CEP 05.426-200</p>
+        <small>&copy; 20217 Seu Chip Uber. Todos os direitos reservados.</small>
+    </footer>
+    <div class="error-message" id="error-message">
+        Por favor, preencha todos os dados antes de prosseguir.
+    </div>
+    <script>
+        function togglePopup(id) {
+            var popup = document.getElementById(id);
+            popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function selectPlan() {
+            var selectedPlan = document.querySelector('input[name="plan"]:checked');
+            if (selectedPlan) {
+                document.getElementById('selected-plan').textContent = selectedPlan.value;
+                togglePopup('plan-popup');
+            }
+        }
+
+        function saveDeliveryData() {
+            var street = document.getElementById('street').value;
+            var number = document.getElementById('number').value;
+            var neighborhood = document.getElementById('neighborhood').value;
+            var city = document.getElementById('city').value;
+            var cep = document.getElementById('cep').value;
+            document.getElementById('delivery-data').textContent = `${street}, ${number}, ${neighborhood}, ${city}, ${cep}`;
+            togglePopup('delivery-popup');
+        }
+
+        function savePersonalData() {
+            var firstName = document.getElementById('first-name').value;
+            var lastName = document.getElementById('last-name').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+            document.getElementById('personal-data').textContent = `${firstName} ${lastName}, ${email.replace(/(.{3})(.*)(.@.*)/, '$1****$3')}, ${phone.replace(/(.{3})(.*)/, '$1****')}`;
+            togglePopup('personal-popup');
+        }
+
+        function formatPhoneNumber() {
+            var phone = document.getElementById('phone');
+            phone.addEventListener('input', function (e) {
+                var x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+                e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+            });
+        }
+
+        document.getElementById('phone').addEventListener('focus', formatPhoneNumber);
+
+        function showError() {
+            var errorMessage = document.getElementById('error-message');
+            errorMessage.style.display = 'block';
+            setTimeout(function() {
+                errorMessage.style.display = 'none';
+            }, 3000);
+        }
+
+        function goToPayment() {
+            // Verifica se todos os campos foram preenchidos
+            var deliveryData = document.getElementById('delivery-data').textContent;
+            var personalData = document.getElementById('personal-data').textContent;
+            if (deliveryData === 'Nenhum dado inserido' || personalData === 'Nenhum dado inserido') {
+                showError();
+            } else {
+                document.querySelector('.payment-button').textContent = 'Processando...';
+                setTimeout(function() {
+                    window.location.href = 'pagamento.html?street=' + encodeURIComponent(document.getElementById('street').value) +
+                        '&number=' + encodeURIComponent(document.getElementById('number').value) +
+                        '&neighborhood=' + encodeURIComponent(document.getElementById('neighborhood').value) +
+                        '&city=' + encodeURIComponent(document.getElementById('city').value) +
+                        '&cep=' + encodeURIComponent(document.getElementById('cep').value);
+                }, 1000);
+            }
+        }
+    </script>
+</body>
+</html>

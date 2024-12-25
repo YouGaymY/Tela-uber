@@ -1,0 +1,248 @@
+<html lang="pt-BR">
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Pagamento PIX</title> 
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: ;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #555;
+    }
+    .header, .footer {
+      width: 100%;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+    }
+    .header img {
+      max-width: 200px;
+      height: auto;
+    }
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      max-width: 100%;
+      width: 100%;
+      margin-top: ;
+      box-sizing: border-box;
+    }
+    h1 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .info {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      border-radius: 8px;
+      background-color: #fafafa;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+    }
+    .label {
+      font-weight: bold;
+      color: #555;
+    }
+    .value {
+      color: #000;
+    }
+    .qr-container {
+      display: flex;
+      justify-content: center;
+      margin: 23px 0;
+      border: 2px dashed #ccc;
+      width: 200px;
+      height: 200px;
+      align-items: center;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+    }
+    .pix-key-container {
+      background-color: #f0f0f0;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .pix-key-container p {
+      margin: 0;
+      word-break: break-all;
+    }
+    .copy-button {
+      background-color: #000;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+    }
+    .copy-button:hover {
+      background-color: #5e2185;
+    }
+    .timer {
+      font-size: 20px;
+      color: #ff0000;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .instructions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .instruction-step {
+      background-color: #fafafa;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #7929a5;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    }
+    @media (max-width: 100%) {
+      .container {
+        padding: 19px;
+      }
+      .info {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .label, .value {
+        width: 100%;
+      }
+      .copy-button {
+        font-size: 14px;
+      }
+    }
+  </style> 
+  <script>
+    function copiarChave() {
+      const chavePix = document.getElementById('pix-key').innerText;
+      navigator.clipboard.writeText(chavePix).then(() => {
+        alert('Chave Pix copiada com sucesso!');
+      });
+    }
+
+    function startTimer(duration, display) {
+      let timer = duration, minutes, seconds;
+      setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+          timer = duration;
+        }
+      }, 1000);
+    }
+
+    window.onload = function () {
+      const params = new URLSearchParams(window.location.search);
+      document.getElementById('plano').innerText = params.get('plano');
+      document.getElementById('validade').innerText = params.get('validade');
+      document.getElementById('numero').innerText = params.get('numero');
+      document.getElementById('valorPlano').innerText = params.get('plano');
+
+      const thirtyMinutes = 60 * 30,
+        display = document.querySelector('#time');
+      startTimer(thirtyMinutes, display);
+    };
+  </script> 
+ </head> 
+ <body> 
+  <div class="header"> 
+   <img src="Operadoras.png" alt="Logotipo das Operadoras"> 
+  </div> 
+  <div class="container"> 
+   <h1> escanei o QR Code ou Copie a chave pix </h1> 
+   <div class="info"> 
+    <div class="label">
+      valor a pagar: R$ 40,00 
+    </div> 
+    <div class="value" id="plano"></div> 
+   </div> 
+   <div class="info"> 
+    <div class="label">
+      compra 100% segura 
+    </div> 
+    <div class="value" id="validade"></div> 
+   </div> 
+   <div class="info"> 
+    <div class="label">
+      aprovação imediata após o pagamento 
+    </div> 
+    <div class="value" id="numero"></div> 
+   </div> 
+   <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATEAAAExAQMAAAAuqwcrAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAADzElEQVRoge1aTa6zMAw06oIlR8hN6MWQisTFeDfhCCyzeKq/mXF4rb6/dSw1iwqaoZJrZzy2Mfusz/qs/6zJ3Z+2mA2nGa6s1MG/bXxOftgdmzUJbjWbJ2zs0+Z1ttuB29V8t4fbDEAWHHdhNCEOox8wEKbS6IIncJUJtxYYCJfN03bUu28uv9VsOJg6Pu1xwHmynFfhwTw4xh9jbThb6AG3FD32R5z2jCMf0FvzXz5+542OcQH+tnqHvb6TCpyW8/Yd0jvu4jV4y8roYeBSxNn4gEOT4MRh7jpR8CCYwX3jd2vBf7C84q97HNPiIXLj6XFQgRX/OnW1FEuDY248xq+Tu8gugDQrkXG2IwnOqFoQf+JiCZZR4H36lpIpNQnuQXtbnonTs4cHQdL+ir/ucZCS5DAyQ7PyTg9iHcg9y8+/0jvu5pFstDEHpd2cdE1Ftv74rXMcz5HDQEYdLAebwXwzMbUN73m1b9zFYUZCNpYorFj4GHCSM0lwODhOLX8/QW7PeAzHih+kuSy4iRwGKlDSDH4mmHxATfPKM53jIONHb3xgSjaqU5Q+tZsEhxTjLH0pxmAqmWHXB+maSiYJjrx2V8DBStfpYUyK0nCzliw4fNdCb3Mlm5GtiFdVmQQnfhY1sxUxK+NEU2KL5FNz4CzSIovgm04PiQxXbHvJeZYFd8SuUiWFMDssBjeyop/ck+AovNruTfWWZLK+k/OOmgMX+bLVW9EwVck4nMFrb+etaxzOEShtlZZnrLVmV+sPsYDJgYu2gwh5ExUccY4YjqpYkuCmKBSpImGvCpNZvjyb0Kw5cHQP5ZaMHmmgq5MKXPyK5cCRmnFwjHn/qOrLz1eLS4FZk+Bw4tWIZ80+PqOiX8QM7LW8+lyd49TJmlqVxRGJx1RB5Da/6ef+cdIvlMRS+q5bDX3G53ue6RyHdEIpWWVvzN80bpC0R+a0HDgRQCO3oqY2FMASZ4vtIkuCw9LoTdIlGqZUANJm8mXNgiscTxUxnKY8I6vFK8X8zBe6x7GzOKneYqMxWODhrdFN9s6Bi+q9uUwtx5H1llpc4rokOOb94TpC0bTTFHRgWf/+v/SOa/GnWFOeUVObnTuTvq9ZcHaJmK1VkJqYRCU8eRZcvE9zDUv2CEJjc2XhE6880ztuVSviUPFIAan5tOYLRzQqkuD0/sbDNWvj2yeutpdkgJ5NhaPLaPTOE6U2JHvDlMm5cBrwxEiXAYc6hVeh9JPgFH/SLxT5cJSawVU6zF9z3e5x5IN4q0lVVhSPfJWmTUwsB+6zPuuz/rF+AYZJEIq47uY7AAAAAElFTkSuQmCC"> 
+   <div class="pix-key-container"> 
+    <p id="pix-key">00020126730014br.gov.bcb.pix0129mailto:4239993@vakinha.com.br0218Chip Uber Infinity520400005303986540540.005802BR5918Chip Uber Infinity6015Fale agora seu 62070503***63041891</p> 
+    <button class="copy-button" onclick="copiarChave()">Copiar Chave Pix</button> 
+   </div> 
+   <div class="timer">
+     Pagamento expira em: 
+    <span id="time">30:00</span> 
+   </div> 
+   <div class="info"> 
+    <div class="label">
+      Valor do Plano: 
+    </div> 
+    <div class="value" id="valorPlano"></div> 
+   </div> 
+   <div class="instructions"> 
+    <div class="instruction-step"> 
+     <strong>1.</strong> Abra o aplicativo do seu banco. 
+    </div> 
+    <div class="instruction-step"> 
+     <strong>2.</strong> Procure pela opção de pagamento via PIX. 
+    </div> 
+    <div class="instruction-step"> 
+     <strong>3.</strong> Escaneie o código QR exibido acima. 
+    </div> 
+    <div class="instruction-step"> 
+     <strong>4.</strong> Confirme o pagamento e pronto! 
+    </div> 
+    <div class="instruction-step"> 
+     <strong>5.</strong> Caso tenha dificuldades, copie a chave PIX acima e cole no campo de chave no seu aplicativo bancário. 
+    </div> 
+    <div class="instruction-step"> 
+     <strong>6.</strong> Se o valor estiver zerado, edite o valor para corresponder ao plano selecionado. 
+    </div> 
+   </div> 
+  </div> 
+  <div id="footer" style="background-color: #f0f0f0; padding: 20px; color: #000;"> 
+   <h4 style="margin-top: 0; color: #000; text-align: left;">Segurança e Informações</h4> 
+   <img src="formas-pagamento.png" alt="Formas de Pagamento" style="width: 100%; max-width: 300px; display: block; margin: 10px auto;"> 
+   <p style="text-align: left;"><strong> provedora de pagamento </strong> - CNPJ: 08.441.363/0002-55</p> 
+   <p style="text-align: left;">Este site utiliza tecnologia de criptografia para garantir a segurança dos seus dados. Os pagamentos são realizados através de sistemas autorizados pelo Banco Central.</p> 
+   <p style="text-align: left;">Informações de Pagamento:</p> 
+   <ul style="list-style-type: none; padding: 0; max-width: 600px; margin: 10px auto; text-align: left;"> 
+    <li><strong>PIX:</strong> Receba a chave PIX em nosso site e finalize seu pagamento de forma rápida e segura.</li> 
+    <li><strong>Cartão de Crédito:</strong> Aceitamos pagamentos com todos os principais cartões de crédito.</li> 
+   </ul> 
+   <p style="text-align: left;">Para mais informações sobre nossos serviços e segurança, entre em contato com nosso suporte.</p> 
+  </div> 
+ </body>
+</html>
